@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <ExcelDataSource Name="Excel Data Source 1" FileName="Data\SalesPerson.xlsx" ComponentName="dashboardExcelDataSource1">
+      <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
+        <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Data" />
+      </Options>
+      <Schema>
+        <FieldInfo Name="CategoryName" Type="System.String" Selected="true" />
+        <FieldInfo Name="Country" Type="System.String" Selected="true" />
+        <FieldInfo Name="ProductName" Type="System.String" Selected="true" />
+        <FieldInfo Name="Sales Person" Type="System.String" Selected="true" />
+        <FieldInfo Name="OrderDate" Type="System.DateTime" Selected="true" />
+        <FieldInfo Name="OrderID" Type="System.Double" Selected="true" />
+        <FieldInfo Name="Quantity" Type="System.Double" Selected="true" />
+        <FieldInfo Name="Discount" Type="System.Double" Selected="true" />
+        <FieldInfo Name="Extended Price" Type="System.Double" Selected="true" />
+        <FieldInfo Name="UnitPrice" Type="System.Double" Selected="true" />
+      </Schema>
+      <ResultSchema>
+        <View>
+          <Field Name="CategoryName" Type="String" />
+          <Field Name="Country" Type="String" />
+          <Field Name="ProductName" Type="String" />
+          <Field Name="Sales Person" Type="String" />
+          <Field Name="OrderDate" Type="DateTime" />
+          <Field Name="OrderID" Type="Double" />
+          <Field Name="Quantity" Type="Double" />
+          <Field Name="Discount" Type="Double" />
+          <Field Name="Extended Price" Type="Double" />
+          <Field Name="UnitPrice" Type="Double" />
+        </View>
+      </ResultSchema>
+    </ExcelDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" DataSource="dashboardExcelDataSource1">
+      <DataItems>
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem1" />
+        <Measure DataMember="Extended Price" DefaultId="DataItem0" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <DateFilter ComponentName="dateFilterDashboardItem1" Name="Date Filter 1" DataSource="dashboardExcelDataSource1">
+      <DataItems>
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem0" />
+      </DataItems>
+      <Dimension DefaultId="DataItem0" />
+      <DateTimePeriods>
+        <DateTimePeriod Name="Last 6 Months">
+          <StartLimit>
+            <FlowDateTimePeriodLimit Interval="Month" Offset="-6" />
+          </StartLimit>
+          <EndLimit>
+            <FlowDateTimePeriodLimit Interval="Month" />
+          </EndLimit>
+        </DateTimePeriod>
+        <DateTimePeriod Name="Last 30 Days">
+          <StartLimit>
+            <FlowDateTimePeriodLimit Interval="Day" Offset="-30" />
+          </StartLimit>
+          <EndLimit>
+            <FlowDateTimePeriodLimit Interval="Day" />
+          </EndLimit>
+        </DateTimePeriod>
+        <DateTimePeriod Name="Next 7 Days">
+          <StartLimit>
+            <FlowDateTimePeriodLimit Interval="Day" Offset="1" />
+          </StartLimit>
+          <EndLimit>
+            <FlowDateTimePeriodLimit Interval="Day" Offset="8" />
+          </EndLimit>
+        </DateTimePeriod>
+      </DateTimePeriods>
+    </DateFilter>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutItem DashboardItem="dateFilterDashboardItem1" Weight="50" />
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="50" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
