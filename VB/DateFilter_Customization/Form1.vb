@@ -27,8 +27,6 @@ Namespace DateFilter_Customization
 
 
 		Private Sub DashboardViewer1_DashboardItemControlCreated(ByVal sender As Object, ByVal e As DevExpress.DashboardWin.DashboardItemControlEventArgs)
-			Dim designer As DashboardViewer = TryCast(sender, DashboardViewer)
-
 			If e.DateFilterControl IsNot Nothing Then
 				SubscribeDateFilterControlEvents(e.DateFilterControl)
 				e.DateFilterControl.BackColor = Color.AliceBlue
