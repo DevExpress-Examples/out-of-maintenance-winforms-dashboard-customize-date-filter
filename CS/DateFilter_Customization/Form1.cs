@@ -30,8 +30,6 @@ namespace DateFilter_Customization
 
         private void DashboardViewer1_DashboardItemControlCreated(object sender, DevExpress.DashboardWin.DashboardItemControlEventArgs e)
         {
-            DashboardViewer designer = sender as DashboardViewer;
-
             if (e.DateFilterControl != null)
             {
                 SubscribeDateFilterControlEvents(e.DateFilterControl);
