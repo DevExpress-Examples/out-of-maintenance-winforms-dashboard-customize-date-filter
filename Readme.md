@@ -4,7 +4,7 @@
 * [Form1.cs](./CS/DateFilter_Customization/Form1.cs) (VB: [Form1.vb](./VB/DateFilter_Customization/Form1.vb))
 <!-- default file list end -->
 
-# How to Customize the Date Filter Dashboard Item
+# Dashboard for WinForms - How to Customize the Date Filter Dashboard Item
 
 This example demonstrates how to access the underlying controls to customize the [Date Filter](https://docs.devexpress.com/Dashboard/400675) dashboard item.
 
