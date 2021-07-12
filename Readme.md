@@ -34,3 +34,6 @@ API in this example:
 **See also:**
 
 * [Access to Underlying Controls](https://docs.devexpress.com/Dashboard/18019)
+
+## More Examples
+- [How to Create a Dashboard with DateFilterDashboardItem in Code](https://github.com/DevExpress-Examples/winforms-dashboard-create-datefilterdashboarditem)
